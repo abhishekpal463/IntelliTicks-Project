@@ -34,5 +34,5 @@ app.get("/", async(req,res)=>{
 app.use("/admin",adminRouter);
 
 app.listen(3000,()=>{
-    console.log("Server Started");
+    console.log("Listening on port 3000");
 });
