@@ -1,0 +1,32 @@
+<%- include("partials/header"); -%>
+
+<%var x=0; %>
+<%if(property.length===0){%>
+    <h2>No Property Added....</h2>
+<%}else{%>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); margin-left: auto; width: 90%; margin-top: 50px;">
+        <%property.forEach(function(site){%>
+
+            <div class="card" style="width: 18rem;  margin-bottom: 40px;">
+                <img class="card-img-top" src="https://source.unsplash.com/<%=1080+x%>x<%=720+x%>/?houses"
+                    alt="Card image cap">
+                <div class="card-body">
+                    <div>
+                        <strong>
+                            <%=site.name%> | <%=site.size%> Sq.m
+                        </strong>
+                    </div>
+                    <p class="card-text">
+                        <%=site.description%>
+                    </p>
+                    <form action="/admin/deleteproperty/<%=site._id%>" method="POST">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
+            </div>
+            <%x++%>
+                <%}); %>
+    </div>
+<%}%>
+<%- include("partials/footer"); -%>
+       
